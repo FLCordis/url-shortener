@@ -4,7 +4,6 @@ import com.flaviocordis.encurtadorurl.dto.ShortenResponse;
 import com.flaviocordis.encurtadorurl.model.ShortUrl;
 import com.flaviocordis.encurtadorurl.repository.ShortUrlRepository;
 import com.flaviocordis.encurtadorurl.util.Base62Encoder;
-import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,8 +15,7 @@ public class UrlShortenerService {
 
     private final ShortUrlRepository repository;
     private final Base62Encoder encoder;
-    private final EntityManager entityManager;
-
+    
     @Value("${app.base-url:http://localhost:8080}")
     private String baseUrl;
 

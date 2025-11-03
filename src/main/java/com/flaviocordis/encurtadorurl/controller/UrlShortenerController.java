@@ -2,7 +2,6 @@ package com.flaviocordis.encurtadorurl.controller;
 
 import com.flaviocordis.encurtadorurl.dto.ShortenRequest;
 import com.flaviocordis.encurtadorurl.dto.ShortenResponse;
-import com.flaviocordis.encurtadorurl.exception.ErrorResponse;
 import com.flaviocordis.encurtadorurl.service.UrlShortenerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -10,8 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
-
-import java.time.LocalDateTime;
 
 @RestController()
 @RequiredArgsConstructor
@@ -36,8 +33,8 @@ public class UrlShortenerController {
     }
 
     @GetMapping("/api/status/{key}")
-    public ResponseEntity<ShortenResponse> getStats(@PathVariable String key){
-        ShortenResponse stats = service.getUrlStatus(key);
-        return ResponseEntity.ok(stats);
+    public ResponseEntity<ShortenResponse> getStatus(@PathVariable String key){
+        ShortenResponse status = service.getUrlStatus(key);
+        return ResponseEntity.ok(status);
     }
 }
